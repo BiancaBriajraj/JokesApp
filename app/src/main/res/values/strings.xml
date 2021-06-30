@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">JokesApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="want_to_hear_a_joke">Want to hear a joke?</string>
+    <string name="general">General</string>
+    <string name="programming">Programming</string>
+    <string name="random">Random</string>
+    <string name="choose_a_catergoy">Choose a catergoy</string>
+</resources>

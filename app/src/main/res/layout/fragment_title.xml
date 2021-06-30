@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.titleFragment">
+
+    <TextView
+        android:id="@+id/titleJokeView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="136dp"
+        android:text="@string/want_to_hear_a_joke"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textChoose">
+
+        <RadioButton
+            android:id="@+id/radioButtonGenerl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/general" />
+
+        <RadioButton
+            android:id="@+id/radioButtonProg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/programming" />
+
+        <RadioButton
+            android:id="@+id/radioButtonRandom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/random" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textChoose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="92dp"
+        android:text="@string/choose_a_catergoy"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleJokeView" />
+</androidx.constraintlayout.widget.ConstraintLayout>
