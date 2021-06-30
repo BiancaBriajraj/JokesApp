@@ -7,7 +7,11 @@
     <fragment
         android:id="@+id/punchlineFragment"
         android:name="com.example.jokesapp.view.punchlineFragment"
-        tools:layout="@layout/fragment_punchline" />
+        tools:layout="@layout/fragment_punchline" >
+        <action
+            android:id="@+id/action_punchlineFragment_to_titleFragment"
+            app:destination="@id/titleFragment" />
+    </fragment>
     <fragment
         android:id="@+id/titleFragment"
         android:name="com.example.jokesapp.view.titleFragment"

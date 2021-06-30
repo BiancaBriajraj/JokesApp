@@ -7,4 +7,8 @@
     <string name="programming">Programming</string>
     <string name="random">Random</string>
     <string name="choose_a_catergoy">Choose a catergoy</string>
+    <string name="show_punchline">Show punchline</string>
+    <string name="new_joke">New Joke</string>
+    <string name="button">Button</string>
+    <string name="new_catergory">New Catergory</string>
 </resources>

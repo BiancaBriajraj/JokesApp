@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context=".view.titleFragment">
 
     <TextView
@@ -21,6 +22,7 @@
     <RadioGroup
         android:layout_width="411dp"
         android:layout_height="wrap_content"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textChoose">
@@ -48,9 +50,9 @@
         android:id="@+id/textChoose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="100dp"
         android:text="@string/choose_a_catergoy"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
