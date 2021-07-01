@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import com.example.jokesapp.R
 import com.example.jokesapp.databinding.FragmentPunchlineBinding
 import com.example.jokesapp.model.Joke
 import com.example.jokesapp.viewModel.JokeViewModel
@@ -36,6 +37,7 @@ class PunchlineFragment : Fragment() {
             val myData = it.getParcelable<Joke>("jokeData")
             myData?.apply {
                 binding.setupDetails.text = setup
+
                 binding.showPunchlineBtn.setOnClickListener {
                     binding.punchLineText.text = punchline
                 }
@@ -45,32 +47,37 @@ class PunchlineFragment : Fragment() {
                     binding.setupDetails.visibility = View.GONE
                     binding.punchLineText.visibility = View.GONE
                     binding.showPunchlineBtn.visibility = View.GONE
-                    viewModel.getInfo(type)
-                    viewModel.loading.observe(viewLifecycleOwner,{ loading ->
-                        if (loading) binding.progressBarP.visibility = View.VISIBLE
-                        else binding.progressBarP.visibility = View.GONE
-                    })
-                    viewModel.error.observe(viewLifecycleOwner, { error ->
-                        if (error) {
-                            binding.apply {
-                                punchErrorMessage.visibility = View.VISIBLE
-                                imageView2.visibility = View.VISIBLE
-                                setupDetails.visibility = View.GONE
-                                punchLineText.visibility =View.GONE
-                                showPunchlineBtn.visibility = View.GONE
+                    if (type == getString(R.string.random).lowercase()) {
+                        viewModel.getInfo(getString(R.string.random))
+                    } else {
+                        viewModel.getInfo(type)
+                    }
+
+                        viewModel.loading.observe(viewLifecycleOwner, { loading ->
+                            if (loading) binding.progressBarP.visibility = View.VISIBLE
+                            else binding.progressBarP.visibility = View.GONE
+                        })
+                        viewModel.error.observe(viewLifecycleOwner, { error ->
+                            if (error) {
+                                binding.apply {
+                                    punchErrorMessage.visibility = View.VISIBLE
+                                    imageView2.visibility = View.VISIBLE
+                                    setupDetails.visibility = View.GONE
+                                    punchLineText.visibility = View.GONE
+                                    showPunchlineBtn.visibility = View.GONE
+                                }
                             }
-                        }
-                    })
-                    viewModel.list.observe(viewLifecycleOwner, { list ->
-                        binding.setupDetails.text = list[0].setup
-                        binding.setupDetails.visibility = View.VISIBLE
-                        binding.showPunchlineBtn.visibility = View.VISIBLE
-                        binding.showPunchlineBtn.setOnClickListener {
-                            binding.punchLineText.text = list[0].punchline
-                            binding.punchLineText.visibility = View.VISIBLE
-                        }
-                    })
-                }
+                        })
+                        viewModel.list.observe(viewLifecycleOwner, { list ->
+                            binding.setupDetails.text = list[0].setup
+                            binding.setupDetails.visibility = View.VISIBLE
+                            binding.showPunchlineBtn.visibility = View.VISIBLE
+                            binding.showPunchlineBtn.setOnClickListener {
+                                binding.punchLineText.text = list[0].punchline
+                                binding.punchLineText.visibility = View.VISIBLE
+                            }
+                        })
+                    }
 
             }
         }

@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".view.CategoryFragment">
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="212dp"
+        android:layout_height="229dp"
+        android:src="@drawable/istockphoto_158795594_612x612"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <RadioGroup
         android:id="@+id/radioGroupType"
         android:layout_width="0dp"
@@ -14,6 +22,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/typeChooseTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/fira_mono"
+            android:text="@string/choose_a_catergoy"
+            android:textSize="34sp" />
 
         <RadioButton
             android:id="@+id/typeRadioButtonGenral"
@@ -40,17 +56,6 @@
             android:textSize="20sp" />
     </RadioGroup>
 
-    <TextView
-        android:id="@+id/typeChooseTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/fira_mono"
-        android:text="@string/choose_a_catergoy"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/radioGroupType"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <Button
         android:id="@+id/typeGenButton"
         android:layout_width="wrap_content"
@@ -75,13 +80,14 @@
         android:id="@+id/typeErrorMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="158dp"
         android:text="@string/something_has_gone_wrong_n_please_try_again"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
         app:layout_constraintVertical_bias="0.772"
         tools:visibility="visible" />
 

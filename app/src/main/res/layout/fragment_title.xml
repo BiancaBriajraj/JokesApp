@@ -7,18 +7,30 @@
     android:padding="10dp"
     tools:context=".view.TitleFragment">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="186dp"
+        android:layout_marginLeft="186dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/_918bd309f6324716188106c6445a5ea"
+        app:layout_constraintBottom_toBottomOf="@+id/titleJokeView"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/titleJokeView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="160dp"
         android:fontFamily="@font/annie_use_your_telescope"
+        android:foregroundGravity="top"
         android:text="@string/want_to_hear_a_joke"
         android:textSize="50sp"
         android:textStyle="bold"
         android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
