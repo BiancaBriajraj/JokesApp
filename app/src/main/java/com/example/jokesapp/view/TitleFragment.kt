@@ -5,14 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.jokesapp.R
 import com.example.jokesapp.databinding.FragmentTitleBinding
-import com.example.jokesapp.model.Joke
 import com.example.jokesapp.viewModel.JokeViewModel
-import kotlinx.android.synthetic.main.fragment_title.*
+
 
 class TitleFragment : Fragment() {
 
@@ -23,7 +21,7 @@ class TitleFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View{
         // Inflate the layout for this fragment
         binding = FragmentTitleBinding.inflate(inflater,container,false)
 
@@ -37,9 +35,7 @@ class TitleFragment : Fragment() {
             binding.progressBar.visibility =View.GONE
 
         binding.generateJokebtn.setOnClickListener {
-            val selectId= binding.radioGroupP.checkedRadioButtonId
-            var userType: String = " "
-            userType = when(selectId){
+            val userType  = when(binding.radioGroupP.checkedRadioButtonId){
                 R.id.radioButtonGenerl -> getString(R.string.general)
                 R.id.radioButtonProg-> getString(R.string.programming)
                 R.id.radioButtonRandom-> getString(R.string.general)
@@ -48,11 +44,11 @@ class TitleFragment : Fragment() {
             viewModel.getInfo(userType)
 
 
-            viewModel.loading.observe(viewLifecycleOwner, Observer {
+            viewModel.loading.observe(viewLifecycleOwner, {
                     loading ->  if(loading) binding.progressBar.visibility = View.VISIBLE
              else binding.progressBar.visibility = View.GONE
             })
-            viewModel.list.observe(viewLifecycleOwner, Observer {
+            viewModel.list.observe(viewLifecycleOwner, {
                 list -> Navigation.findNavController(it).navigate(TitleFragmentDirections.actionTitleFragmentToPunchlineFragment(list[0]))
             })
 
