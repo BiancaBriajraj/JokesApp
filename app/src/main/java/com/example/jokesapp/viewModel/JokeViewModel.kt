@@ -19,6 +19,7 @@ private val BASE_URL ="https://official-joke-api.appspot.com/"
 
     private val _list = MutableLiveData<List<Joke>>()
     val list :LiveData<List<Joke>> get() = _list
+    val loading = MutableLiveData<Boolean>()
 
     fun getInfo(category: String)
     {
@@ -27,11 +28,11 @@ private val BASE_URL ="https://official-joke-api.appspot.com/"
 
     private fun retrieveList(type: String)
     {
-
         val retrofit= Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(BASE_URL)
             .build()
+        loading.value=true
 
         val apiService= retrofit.create(ApiService::class.java)
         val mCall: Call<List<Joke>> = apiService.getInfo(type.toLowerCase())
@@ -39,10 +40,12 @@ private val BASE_URL ="https://official-joke-api.appspot.com/"
             override fun onResponse(call: Call<List<Joke>>, response: Response<List<Joke>>) {
                val mmodel  = response.body()!!
                 _list.value = mmodel
+                loading.value= false
             }
 
             override fun onFailure(call: Call<List<Joke>>, t: Throwable) {
                //need to handle this error and the error of not choosing
+                loading.value = true
             }
         })
     }

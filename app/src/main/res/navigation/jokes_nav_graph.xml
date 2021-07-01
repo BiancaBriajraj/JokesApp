@@ -6,19 +6,31 @@
     app:startDestination="@id/titleFragment">
     <fragment
         android:id="@+id/punchlineFragment"
-        android:name="com.example.jokesapp.view.punchlineFragment"
+        android:name="com.example.jokesapp.view.PunchlineFragment"
         tools:layout="@layout/fragment_punchline" >
+        <argument
+            android:name="jokeData"
+            app:argType="com.example.jokesapp.model.Joke" />
         <action
-            android:id="@+id/action_punchlineFragment_to_titleFragment"
-            app:destination="@id/titleFragment" />
+            android:id="@+id/action_punchlineFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/titleFragment"
-        android:name="com.example.jokesapp.view.titleFragment"
-        android:label="fragment_title"
-        tools:layout="@layout/fragment_title" >
+        android:name="com.example.jokesapp.view.TitleFragment"
+        android:label="Welcome"
+        tools:layout="@layout/fragment_title">
         <action
-            android:id="@+id/action_titleFragment3_to_punchlineFragment"
+            android:id="@+id/action_titleFragment_to_punchlineFragment"
+            app:destination="@id/punchlineFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.example.jokesapp.view.CategoryFragment"
+        android:label="Catergoy Choice"
+        tools:layout="@layout/fragment_category">
+        <action
+            android:id="@+id/action_categoryFragment_to_punchlineFragment"
             app:destination="@id/punchlineFragment" />
     </fragment>
 </navigation>
