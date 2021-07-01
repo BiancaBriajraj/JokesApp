@@ -39,7 +39,7 @@ class CategoryFragment : Fragment() {
             }
             if (userType == getString(R.string.noChoice)) {
                 Toast.makeText(activity, "No category chosen", Toast.LENGTH_SHORT).show()
-            } else {
+            }else {
                 viewModel.getInfo(userType)
                 viewModel.loading.observe(viewLifecycleOwner, { loading ->
                     if (loading) {
@@ -52,7 +52,6 @@ class CategoryFragment : Fragment() {
                 viewModel.list.observe(viewLifecycleOwner, { list ->
                     Navigation.findNavController(it).navigate(CategoryFragmentDirections.actionCategoryFragmentToPunchlineFragment(list[0]))
                 })
-
                 viewModel.error.observe(viewLifecycleOwner, { error ->
                     if (error) {
                         binding.typeErrorMessage.visibility = View.VISIBLE

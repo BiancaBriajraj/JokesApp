@@ -22,30 +22,26 @@ class TitleFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View{
+    ): View {
         // Inflate the layout for this fragment
-        binding = FragmentTitleBinding.inflate(inflater,container,false)
-
+        binding = FragmentTitleBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         viewModel = ViewModelProvider(this).get(JokeViewModel::class.java)
-            binding.progressBar.visibility =View.GONE
-
+        binding.progressBar.visibility = View.GONE
         binding.generateJokebtn.setOnClickListener {
-            val userType  = when(binding.radioGroupP.checkedRadioButtonId){
+            val userType = when (binding.radioGroupP.checkedRadioButtonId) {
                 R.id.radioButtonGenerl -> getString(R.string.general)
-                R.id.radioButtonProg-> getString(R.string.programming)
-                R.id.radioButtonRandom-> getString(R.string.random)
+                R.id.radioButtonProg -> getString(R.string.programming)
+                R.id.radioButtonRandom -> getString(R.string.random)
                 else -> getString(R.string.noChoice)
             }
-            if(userType == getString(R.string.noChoice)){
-                Toast.makeText(activity,"No category chosen",Toast.LENGTH_SHORT).show()
+            if (userType == getString(R.string.noChoice)) {
+                Toast.makeText(activity, "No category chosen", Toast.LENGTH_SHORT).show()
             }else {
-
                 viewModel.getInfo(userType)
                 viewModel.loading.observe(viewLifecycleOwner, { loading ->
                     if (loading) binding.progressBar.visibility = View.VISIBLE
@@ -57,12 +53,7 @@ class TitleFragment : Fragment() {
                 viewModel.error.observe(viewLifecycleOwner, { error ->
                     if (error) binding.titleErrorMessage.visibility = View.VISIBLE
                 })
-
             }
         }
-
-
-
     }
-
 }
