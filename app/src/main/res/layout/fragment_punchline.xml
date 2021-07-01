@@ -4,14 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.PunchlineFragment">
+    android:padding="25dp"
+    tools:context=".view.PunchlineFragment"
+    tools:visibility="visible">
 
     <TextView
         android:id="@+id/setupDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="116dp"
-        android:textSize="24sp"
+        android:fontFamily="@font/fira_mono"
+        android:gravity="clip_horizontal"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/showPunchlineBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.469"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,18 +27,23 @@
         android:id="@+id/showPunchlineBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
+        android:fontFamily="@font/fira_mono"
         android:text="@string/show_punchline"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/setupDetails" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/punchLineText"
-        android:layout_width="91dp"
-        android:layout_height="76dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
+        android:fontFamily="@font/fira_mono"
+        android:gravity="center_horizontal"
+        android:textSize="24sp"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/showPunchlineBtn"
@@ -43,6 +53,7 @@
         android:id="@+id/newJokeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/fira_mono"
         android:text="@string/new_joke"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -51,6 +62,7 @@
         android:id="@+id/NewCategoryButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/fira_mono"
         android:text="@string/new_catergory"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -58,10 +70,39 @@
     <ProgressBar
         android:id="@+id/progressBarP"
         style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="255dp"
+        android:layout_height="249dp"
+        android:layout_marginTop="164dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="239dp"
+        android:src="@drawable/ic_baseline_error_24"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/punchErrorMessage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.68"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/punchErrorMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="199dp"
+        android:text="@string/something_has_gone_wrong_n_please_try_again"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

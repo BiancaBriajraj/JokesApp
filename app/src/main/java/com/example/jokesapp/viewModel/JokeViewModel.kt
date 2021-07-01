@@ -18,6 +18,7 @@ private val BASEURL ="https://official-joke-api.appspot.com/"
     private val _list = MutableLiveData<List<Joke>>()
     val list :LiveData<List<Joke>> get() = _list
     val loading = MutableLiveData<Boolean>()
+    val error = MutableLiveData<Boolean>()
 
     fun getInfo(category: String)
     {
@@ -33,7 +34,7 @@ private val BASEURL ="https://official-joke-api.appspot.com/"
         loading.value=true
 
         val apiService= retrofit.create(ApiService::class.java)
-        val mCall: Call<List<Joke>> = apiService.getInfo(type.lowercase())
+        val mCall: Call<List<Joke>> = apiService.getInfo(isRandom(type))
         mCall.enqueue(object : Callback<List<Joke>> {
             override fun onResponse(call: Call<List<Joke>>, response: Response<List<Joke>>) {
                val mmodel  = response.body()!!
@@ -44,7 +45,16 @@ private val BASEURL ="https://official-joke-api.appspot.com/"
             override fun onFailure(call: Call<List<Joke>>, t: Throwable) {
                //need to handle this error and the error of not choosing
                 loading.value = true
+                error.value= true
             }
         })
+    }
+    private fun isRandom(type:String):String{
+       val listOfOptions = listOf("programming","general")
+        return if (type.lowercase() == "random"){
+            listOfOptions.random()
+        }else{
+            type.lowercase()
+        }
     }
 }

@@ -9,13 +9,16 @@
 
     <TextView
         android:id="@+id/titleJokeView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="140dp"
+        android:fontFamily="@font/annie_use_your_telescope"
         android:text="@string/want_to_hear_a_joke"
-        android:textSize="34sp"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,18 +35,21 @@
             android:id="@+id/radioButtonGenerl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/fira_mono"
             android:text="@string/general" />
 
         <RadioButton
             android:id="@+id/radioButtonProg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/fira_mono"
             android:text="@string/programming" />
 
         <RadioButton
             android:id="@+id/radioButtonRandom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/fira_mono"
             android:text="@string/random" />
     </RadioGroup>
 
@@ -51,11 +57,12 @@
         android:id="@+id/textChoose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/fira_mono"
         android:text="@string/choose_a_catergoy"
-        android:textSize="16sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleJokeView" />
 
@@ -63,16 +70,33 @@
         android:id="@+id/generateJokebtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:fontFamily="@font/annie_use_your_telescope"
+        android:text="@string/generate"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroupP" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="207dp"
+        android:layout_height="164dp"
+        android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/titleErrorMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="clip_horizontal"
+        android:lineSpacingExtra="24sp"
+        android:text="@string/something_has_gone_wrong_n_please_try_again"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/generateJokebtn" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

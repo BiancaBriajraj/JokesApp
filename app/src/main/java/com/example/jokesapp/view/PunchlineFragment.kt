@@ -41,16 +41,30 @@ class PunchlineFragment : Fragment() {
                 }
 
                 binding.newJokeButton.setOnClickListener {
-                    viewModel.getInfo(type)
+
                     binding.setupDetails.visibility = View.GONE
                     binding.punchLineText.visibility = View.GONE
+                    binding.showPunchlineBtn.visibility = View.GONE
+                    viewModel.getInfo(type)
                     viewModel.loading.observe(viewLifecycleOwner,{ loading ->
                         if (loading) binding.progressBarP.visibility = View.VISIBLE
                         else binding.progressBarP.visibility = View.GONE
                     })
+                    viewModel.error.observe(viewLifecycleOwner, { error ->
+                        if (error) {
+                            binding.apply {
+                                punchErrorMessage.visibility = View.VISIBLE
+                                imageView2.visibility = View.VISIBLE
+                                setupDetails.visibility = View.GONE
+                                punchLineText.visibility =View.GONE
+                                showPunchlineBtn.visibility = View.GONE
+                            }
+                        }
+                    })
                     viewModel.list.observe(viewLifecycleOwner, { list ->
                         binding.setupDetails.text = list[0].setup
                         binding.setupDetails.visibility = View.VISIBLE
+                        binding.showPunchlineBtn.visibility = View.VISIBLE
                         binding.showPunchlineBtn.setOnClickListener {
                             binding.punchLineText.text = list[0].punchline
                             binding.punchLineText.visibility = View.VISIBLE
