@@ -12,7 +12,6 @@ import com.example.jokesapp.databinding.FragmentPunchlineBinding
 import com.example.jokesapp.model.Joke
 import com.example.jokesapp.viewModel.JokeViewModel
 
-
 class PunchlineFragment : Fragment() {
 
     private lateinit var binding: FragmentPunchlineBinding
@@ -33,9 +32,10 @@ class PunchlineFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(JokeViewModel::class.java)
         binding.progressBarP.visibility = View.GONE
 
-        arguments?.let {
-            val myData = it.getParcelable<Joke>("jokeData")
+        arguments?.let { bundle ->
+            val myData = bundle.getParcelable<Joke>("jokeData")
             myData?.apply {
+                binding.punchCatView.text = getString(R.string.catergoy_s, type.replaceFirstChar{ it.uppercase() })
                 binding.setupDetails.text = setup
                 binding.showPunchlineBtn.setOnClickListener {
                     binding.punchLineText.text = punchline

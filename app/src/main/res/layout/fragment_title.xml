@@ -11,9 +11,9 @@
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="186dp"
-        android:layout_marginLeft="186dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginStart="164dp"
+        android:layout_marginLeft="164dp"
+        android:layout_marginBottom="28dp"
         android:src="@drawable/_918bd309f6324716188106c6445a5ea"
         app:layout_constraintBottom_toBottomOf="@+id/titleJokeView"
         app:layout_constraintStart_toStartOf="parent" />

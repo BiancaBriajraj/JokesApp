@@ -12,13 +12,11 @@
         android:id="@+id/setupDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="80dp"
         android:fontFamily="@font/fira_mono"
-        android:gravity="clip_horizontal"
+        android:gravity="center_horizontal"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/showPunchlineBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.469"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Setup for joke" />
@@ -26,14 +24,13 @@
     <Button
         android:id="@+id/showPunchlineBtn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/fira_mono"
         android:text="@string/show_punchline"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/setupDetails" />
 
     <TextView
         android:id="@+id/punchLineText"
@@ -76,7 +73,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -84,14 +82,14 @@
         android:layout_height="0dp"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="239dp"
+        android:contentDescription="@string/todo"
         android:src="@drawable/ic_baseline_error_24"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/punchErrorMessage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.68"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/todo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/punchErrorMessage"
@@ -105,5 +103,26 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/punchCatView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/catergoy_s"
+        android:textColor="@color/teal_200"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="184dp"
+        android:layout_height="166dp"
+        android:src="@drawable/depositphotos_20869081_stock_illustration_crossing_fingers_emoticon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.414"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

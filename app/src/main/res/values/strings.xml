@@ -6,14 +6,15 @@
     <string name="general">General</string>
     <string name="programming">Programming</string>
     <string name="random">Random</string>
-    <string name="choose_a_catergoy">Choose a catergoy</string>
+    <string name="choose_a_catergoy">Choose a category</string>
     <string name="show_punchline">Show punchline</string>
     <string name="new_joke">New Joke</string>
     <string name="button">Button</string>
-    <string name="new_catergory">New Catergory</string>
+    <string name="new_catergory">New Category</string>
     <string name="generate">Generate</string>
     <string name="noChoice"> Choice not made</string>
     <string name="something_has_gone_wrong_n_please_try_again">Something has gone wrong. \n Please try again</string>
     <string name="todo">TODO</string>
+    <string name="catergoy_s">Category: %s</string>
 
 </resources>
