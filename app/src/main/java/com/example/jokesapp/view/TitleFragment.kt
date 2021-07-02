@@ -44,7 +44,12 @@ class TitleFragment : Fragment() {
             }else {
                 viewModel.getInfo(userType)
                 viewModel.loading.observe(viewLifecycleOwner, { loading ->
-                    if (loading) binding.progressBar.visibility = View.VISIBLE
+                    if (loading) {
+                    binding.radioGroupP.visibility = View.GONE
+                    binding.generateJokebtn.visibility =View.GONE
+                    binding.textChoose.visibility = View.GONE
+                        binding.progressBar.visibility = View.VISIBLE}
+
                     else binding.progressBar.visibility = View.GONE
                 })
                 viewModel.list.observe(viewLifecycleOwner, { list ->
