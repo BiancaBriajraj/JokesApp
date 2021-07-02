@@ -13,7 +13,6 @@ import com.example.jokesapp.model.Joke
 import com.example.jokesapp.viewModel.JokeViewModel
 
 class PunchlineFragment : Fragment() {
-
     private lateinit var binding: FragmentPunchlineBinding
     private lateinit var viewModel: JokeViewModel
 
@@ -21,21 +20,18 @@ class PunchlineFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         binding = FragmentPunchlineBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(JokeViewModel::class.java)
         binding.progressBarP.visibility = View.GONE
-
         arguments?.let { bundle ->
             val myData = bundle.getParcelable<Joke>("jokeData")
             myData?.apply {
-                binding.punchCatView.text = getString(R.string.catergoy_s, type.replaceFirstChar{ it.uppercase() })
+                binding.punchCatView.text = getString(R.string.catergoy_s, type.replaceFirstChar { it.uppercase() })
                 binding.setupDetails.text = setup
                 binding.showPunchlineBtn.setOnClickListener {
                     binding.punchLineText.text = punchline
@@ -44,9 +40,9 @@ class PunchlineFragment : Fragment() {
                     binding.setupDetails.visibility = View.GONE
                     binding.punchLineText.visibility = View.GONE
                     binding.showPunchlineBtn.visibility = View.GONE
-                    if (type == getString(R.string.random).lowercase()) {
+                    if (type == getString(R.string.random).lowercase()){
                         viewModel.getInfo(getString(R.string.random))
-                    }else {
+                    } else {
                         viewModel.getInfo(type)
                     }
                     viewModel.loading.observe(viewLifecycleOwner, { loading ->

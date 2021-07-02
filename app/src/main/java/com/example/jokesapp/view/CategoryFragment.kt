@@ -12,11 +12,10 @@ import com.example.jokesapp.R
 import com.example.jokesapp.databinding.FragmentCategoryBinding
 import com.example.jokesapp.viewModel.JokeViewModel
 
-
 class CategoryFragment : Fragment() {
-
     private lateinit var binding: FragmentCategoryBinding
     private lateinit var viewModel: JokeViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,7 +38,7 @@ class CategoryFragment : Fragment() {
             }
             if (userType == getString(R.string.noChoice)) {
                 Toast.makeText(activity, "No category chosen", Toast.LENGTH_SHORT).show()
-            }else {
+            } else {
                 viewModel.getInfo(userType)
                 viewModel.loading.observe(viewLifecycleOwner, { loading ->
                     if (loading) {

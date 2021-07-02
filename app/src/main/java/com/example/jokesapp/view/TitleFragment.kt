@@ -12,11 +12,8 @@ import com.example.jokesapp.R
 import com.example.jokesapp.databinding.FragmentTitleBinding
 import com.example.jokesapp.viewModel.JokeViewModel
 
-
 class TitleFragment : Fragment() {
-
     private lateinit var binding: FragmentTitleBinding
-
     private lateinit var viewModel: JokeViewModel
 
     override fun onCreateView(
@@ -41,16 +38,15 @@ class TitleFragment : Fragment() {
             }
             if (userType == getString(R.string.noChoice)) {
                 Toast.makeText(activity, "No category chosen", Toast.LENGTH_SHORT).show()
-            }else {
+            } else {
                 viewModel.getInfo(userType)
                 viewModel.loading.observe(viewLifecycleOwner, { loading ->
                     if (loading) {
-                    binding.radioGroupP.visibility = View.GONE
-                    binding.generateJokebtn.visibility =View.GONE
-                    binding.textChoose.visibility = View.GONE
-                        binding.progressBar.visibility = View.VISIBLE}
-
-                    else binding.progressBar.visibility = View.GONE
+                        binding.radioGroupP.visibility = View.GONE
+                        binding.generateJokebtn.visibility = View.GONE
+                        binding.textChoose.visibility = View.GONE
+                        binding.progressBar.visibility = View.VISIBLE
+                    } else binding.progressBar.visibility = View.GONE
                 })
                 viewModel.list.observe(viewLifecycleOwner, { list ->
                     Navigation.findNavController(it).navigate(TitleFragmentDirections.actionTitleFragmentToPunchlineFragment(list[0]))
