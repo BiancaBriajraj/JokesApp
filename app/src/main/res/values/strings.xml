@@ -16,5 +16,9 @@
     <string name="something_has_gone_wrong_n_please_try_again">Something has gone wrong. \n Please try again</string>
     <string name="todo">TODO</string>
     <string name="catergoy_s">Category: %s</string>
-
+    <string-array name="options">
+        <item>General</item>
+        <item>Programming</item>
+        <item>Random</item>
+    </string-array>
 </resources>
