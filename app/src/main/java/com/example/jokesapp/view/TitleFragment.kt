@@ -28,32 +28,34 @@ class TitleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(JokeViewModel::class.java)
-        binding.progressBar.visibility = View.GONE
-        binding.generateJokebtn.setOnClickListener {
-            val userType = when (binding.radioGroupP.checkedRadioButtonId) {
-                R.id.radioButtonGenerl -> getString(R.string.general)
-                R.id.radioButtonProg -> getString(R.string.programming)
-                R.id.radioButtonRandom -> getString(R.string.random)
-                else -> getString(R.string.noChoice)
-            }
-            if (userType == getString(R.string.noChoice)) {
-                Toast.makeText(activity, "No category chosen", Toast.LENGTH_SHORT).show()
-            } else {
-                viewModel.getInfo(userType)
-                viewModel.loading.observe(viewLifecycleOwner, { loading ->
-                    if (loading) {
-                        binding.radioGroupP.visibility = View.GONE
-                        binding.generateJokebtn.visibility = View.GONE
-                        binding.textChoose.visibility = View.GONE
-                        binding.progressBar.visibility = View.VISIBLE
-                    } else binding.progressBar.visibility = View.GONE
-                })
-                viewModel.list.observe(viewLifecycleOwner, { list ->
-                    Navigation.findNavController(it).navigate(TitleFragmentDirections.actionTitleFragmentToPunchlineFragment(list[0]))
-                })
-                viewModel.error.observe(viewLifecycleOwner, { error ->
-                    if (error) binding.titleErrorMessage.visibility = View.VISIBLE
-                })
+        binding.apply {
+            progressBar.visibility = View.GONE
+            generateJokebtn.setOnClickListener {
+                val userType = when (radioGroupP.checkedRadioButtonId) {
+                    R.id.radioButtonGenerl -> getString(R.string.general)
+                    R.id.radioButtonProg -> getString(R.string.programming)
+                    R.id.radioButtonRandom -> getString(R.string.random)
+                    else -> getString(R.string.noChoice)
+                }
+                if (userType == getString(R.string.noChoice)) {
+                    Toast.makeText(activity, "No category chosen", Toast.LENGTH_SHORT).show()
+                } else {
+                    viewModel.getInfo(userType)
+                    viewModel.loading.observe(viewLifecycleOwner, { loading ->
+                        if (loading) {
+                            radioGroupP.visibility = View.GONE
+                            generateJokebtn.visibility = View.GONE
+                            textChoose.visibility = View.GONE
+                            progressBar.visibility = View.VISIBLE
+                        } else progressBar.visibility = View.GONE
+                    })
+                    viewModel.list.observe(viewLifecycleOwner, { list ->
+                        Navigation.findNavController(it).navigate(TitleFragmentDirections.actionTitleFragmentToPunchlineFragment(list[0]))
+                    })
+                    viewModel.error.observe(viewLifecycleOwner, { error ->
+                        if (error) titleErrorMessage.visibility = View.VISIBLE
+                    })
+                }
             }
         }
     }
